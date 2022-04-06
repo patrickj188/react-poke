@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import data from '../data.json'
+import PokeCard from "./PokeCard";
+import { Grid, Select } from '@mantine/core';
 
 const Search = () => {
     const [term, setTerm] = useState('')
@@ -77,7 +79,20 @@ const Search = () => {
                 </div>
             </div>
             {poke.map((d, i) => {
-                return <div key={i}> {d.name.english} </div>
+                return (
+                        <Grid>
+                            <Grid.Col span={4}>
+                                <PokeCard
+                                    key={i}
+                                    name={d.name.english}
+                                    img={d.thumbnail}
+                                    description={d.description}
+                                    species={d.species}>
+                                </PokeCard>
+                            </Grid.Col>
+                        </Grid>
+
+                )
             })}
         </div>
     )
