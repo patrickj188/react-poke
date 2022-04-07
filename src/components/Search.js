@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import data from '../data.json'
 import PokeCard from "./PokeCard";
-import { Select, ScrollArea, AppShell, Navbar, Header } from '@mantine/core';
+import { Input, AppShell, Header, MultiSelect } from '@mantine/core';
 import searchStyle from "../components/style/searchStyle.css"
 
 const Search = () => {
@@ -50,14 +49,17 @@ const Search = () => {
         <div>
             <AppShell
                 padding="md"
-                header={<Header height={60} p="xs">
+                header={<Header height={100} p="xs">
                     {
                         <div className="field">
-                            <label>Search</label>
-                            <input
+                            <label>Pokedex Search</label>
+                            <Input
                                 value={term}
                                 onChange={e => setTerm(e.target.value)}
-                                className="input" />
+                                className="input"
+                                radius="md"
+                                size="md"
+                            />
                             <select
                                 value={selectedType}
                                 onChange={e => setSelectedType(e.target.value)}
