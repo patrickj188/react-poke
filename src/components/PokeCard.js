@@ -11,28 +11,29 @@ const PokeCard = (props) => {
         : theme.colors.gray[7];
 
     return (
-        <div style={{ width: 340, margin: 'auto' }}>
-            <Card shadow="sm" p="lg">
-                <Card.Section>
-                    <Image src={props.img} height={300} alt="" />
-                </Card.Section>
+    
+                <div style={{ width: 340, margin: 'auto' }}>
+                    <Card shadow="sm" p="lg">
+                        <Card.Section>
+                            <Image src={props.img} height={300} alt="" />
+                        </Card.Section>
 
-                <Group position="apart" style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
-                    <Text weight={500}>{props.name}</Text>
-                    <Badge color="pink" variant="light">
-                        {props.species}
-                    </Badge>
-                </Group>
+                        <Group position="apart" style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
+                            <Text weight={500}>{props.name}</Text>
+                            <Badge color="pink" variant="light">
+                                {props.species}
+                            </Badge>
+                        </Group>
 
-                <Text size="sm" style={{ color: secondaryColor, lineHeight: 1.5 }}>
-                    {props.description}
-                </Text>
+                        <Text size="sm" style={{ color: secondaryColor, lineHeight: 1.5 }}>
+                            {props.description}
+                        </Text>
 
-                <Button variant="light" color="blue" fullWidth style={{ marginTop: 14 }}>
-                    Add to team
-                </Button>
-            </Card>
-        </div>
+                        <Button variant="light" color="blue" fullWidth style={{ marginTop: 14 }}>
+                            Add to team
+                        </Button>
+                    </Card>
+                </div>
 
     )
 }
