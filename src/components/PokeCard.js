@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Image, Text, Badge, Button, Group, useMantineTheme, Grid } from '@mantine/core';
-
+import '../components/style/pokeCardStyle.css'
 
 
 const PokeCard = (props) => {
@@ -12,13 +12,13 @@ const PokeCard = (props) => {
 
     return (
     
-                <div style={{ width: 340, margin: 'auto' }}>
+                <div className='pokeCard' style={{ width: 340, margin: 'auto' }}>
                     <Card shadow="sm" p="lg">
                         <Card.Section>
-                            <Image src={props.img} height={300} alt="" />
+                            <Image src={props.img} alt="" />
                         </Card.Section>
 
-                        <Group position="apart" style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
+                        <Group position="apart" style={{ marginBottom: 5, marginTop: theme.spacing.md }}>
                             <Text weight={500}>{props.name}</Text>
                             <Badge color="pink" variant="light">
                                 {props.species}
@@ -29,9 +29,9 @@ const PokeCard = (props) => {
                             {props.description}
                         </Text>
 
-                        <Button variant="light" color="blue" fullWidth style={{ marginTop: 14 }}>
+                        {/* <Button variant="light" color="blue" fullWidth style={{ marginTop: 14 }}>
                             Add to team
-                        </Button>
+                        </Button> */}
                     </Card>
                 </div>
 
