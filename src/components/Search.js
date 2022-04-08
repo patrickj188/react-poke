@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext, useMemo } from "react";
 import { PokemonContext } from "./PokemonContext";
 import PokeCard from "./PokeCard";
-import { Input, AppShell, Navbar, Header, List, Button, Divider, Title, Select } from '@mantine/core';
+import { Input, AppShell, Navbar, Header, List, Button, Divider, Title, Select, Center, Image, Text } from '@mantine/core';
 import searchStyle from "../components/style/searchStyle.css"
+import pokeDexImg from "../components/style/Pokedex-img.gif"
 
 
 const Search = ({ }) => {
@@ -10,7 +11,7 @@ const Search = ({ }) => {
     const [poke, setPoke] = useState([])
     const [selectedType, setSelectedType] = useState(null)
     const [teammate, setTeammate] = useState([])
-    
+
     const pokemon = useContext(PokemonContext).pokemon
 
     const allTypes = useMemo(() => {
@@ -106,7 +107,9 @@ const Search = ({ }) => {
                 </div>
 
                 <div className="teamDiv">
-                    <header className="teamHeader">Your Team</header>
+                    <Divider my="sm" />
+                    <Text className="yourTeam" underline size="xl" align="center" weight={700}>Your Team</Text>
+
                     <List>
                         {teammate.map((pokeTeam, id) => {
                             return (<div key={id}>
@@ -124,8 +127,18 @@ const Search = ({ }) => {
                 </div>
 
             </Navbar>}
-            header={<Header fixed height={60} p="xs">{
-                <Title>Pokedex</Title>
+            header={<Header fixed height={100} p="xs">{
+                <Center>
+                    <Image
+                        radius="sm"
+                        src={pokeDexImg}
+                        alt="Random unsplash image"
+                        width={100}
+                        height={80}
+                        fit="contain"
+                    />
+                    <Title order={1} >Pokedex</Title>
+                </Center>
             }</Header>}
             styles={(theme) => ({
                 main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
